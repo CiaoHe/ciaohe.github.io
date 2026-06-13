@@ -14,6 +14,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1.5em;
 }
 
 body {
@@ -93,6 +94,11 @@ a:focus-visible {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 3.5em 1.5em 4em;
+}
+
+.publications-page {
+  grid-template-columns: 220px minmax(0, 760px) 72px;
+  gap: 48px;
 }
 
 .sidebar {
@@ -182,6 +188,35 @@ a:focus-visible {
   min-width: 0;
 }
 
+.year-sidebar {
+  order: 3;
+  min-width: 0;
+}
+
+.year-nav {
+  position: sticky;
+  top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  padding-left: 1em;
+  border-left: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.year-nav a {
+  display: block;
+  padding: 0.25em 0;
+  color: var(--muted);
+}
+
+.year-nav a:hover,
+.year-nav a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
 .page-section {
   margin-bottom: 3em;
   padding-bottom: 2em;
@@ -247,6 +282,7 @@ p {
 
 .pub-item {
   position: relative;
+  scroll-margin-top: 1.5em;
   padding: 1.05em 0 1.05em;
   border-bottom: 1px solid var(--border);
 }
@@ -284,10 +320,39 @@ p {
 }
 
 @media (max-width: 860px) {
-  .page {
+  .page,
+  .publications-page {
     grid-template-columns: 1fr;
     gap: 2.5em;
     padding-top: 2em;
+  }
+
+  .publications-page {
+    gap: 1.4em;
+  }
+
+  .year-sidebar {
+    order: 2;
+  }
+
+  .publications-page .archive {
+    order: 3;
+  }
+
+  .year-nav {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.45em;
+    padding: 0 0 1em;
+    border-left: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .year-nav a {
+    padding: 0.25em 0.65em;
+    border: 1px solid var(--border);
+    border-radius: 999px;
   }
 
   .author-profile {
