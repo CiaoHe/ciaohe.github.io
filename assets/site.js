@@ -1,3 +1,6 @@
+const CLUSTRMAPS_ID = "";
+const CLUSTRMAPS_WIDTH = 110;
+
 class AuthorSidebar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -17,9 +20,44 @@ class AuthorSidebar extends HTMLElement {
             <li><a href="https://www.zhihu.com/people/caohe-22"><span class="link-icon">知</span><span>知乎</span></a></li>
             <li><a href="https://x.com/Shinichi_Izumm"><span class="link-icon">X</span><span>X / Twitter</span></a></li>
           </ul>
+          <div class="visitor-map" data-clustrmaps-widget aria-label="Visitor map" hidden></div>
         </div>
       </aside>
     `;
+
+    this.loadClustrMaps();
+  }
+
+  loadClustrMaps() {
+    if (!CLUSTRMAPS_ID || document.getElementById("clustrmaps")) {
+      return;
+    }
+
+    const widget = this.querySelector("[data-clustrmaps-widget]");
+    if (!widget) {
+      return;
+    }
+
+    const insertWidget = () => {
+      const params = new URLSearchParams({
+        cl: "ffffff",
+        w: String(CLUSTRMAPS_WIDTH),
+        d: CLUSTRMAPS_ID,
+      });
+      const script = document.createElement("script");
+      script.async = true;
+      script.id = "clustrmaps";
+      script.src = `https://cdn.clustrmaps.com/map_v2.js?${params.toString()}`;
+      widget.hidden = false;
+      widget.appendChild(script);
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(insertWidget, { timeout: 2500 });
+      return;
+    }
+
+    window.addEventListener("load", insertWidget, { once: true });
   }
 }
 

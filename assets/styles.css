@@ -168,6 +168,29 @@ a:focus-visible {
   color: var(--link-hover);
 }
 
+.visitor-map {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2em;
+  opacity: 0.72;
+}
+
+.visitor-map:hover,
+.visitor-map:focus-within {
+  opacity: 1;
+}
+
+.visitor-map[hidden] {
+  display: none;
+}
+
+.visitor-map img,
+.visitor-map canvas,
+.visitor-map iframe {
+  max-width: 110px;
+  height: auto;
+}
+
 .link-icon {
   display: inline-flex;
   align-items: center;
@@ -388,6 +411,12 @@ p {
     flex-wrap: wrap;
     gap: 0.4em 1.4em;
     margin-top: 0.3em;
+  }
+
+  .visitor-map {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    margin-top: 0.2em;
   }
 }
 

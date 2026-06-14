@@ -28,3 +28,8 @@ Then visit `http://localhost:8000`.
 - `assets/profile.jpg` - profile photo from Google Scholar
 - `assets/profile.svg` - fallback profile visual
 - `.nojekyll` - tells GitHub Pages to serve the site as plain static files
+
+### ClustrMaps
+
+To enable the visitor map, paste the `d` value from your ClustrMaps embed code
+into `CLUSTRMAPS_ID` in `assets/site.js`.
