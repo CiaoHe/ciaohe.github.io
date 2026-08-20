@@ -11,7 +11,7 @@ class AuthorSidebar extends HTMLElement {
           <p class="author-bio">he/him</p>
           <p class="author-note">Of all the people I’ve lost, I miss myself the most.</p>
           <ul class="author-links">
-            <li><span class="link-icon">⌖</span><span>Shenzhen / Hong Kong</span></li>
+            <li><span class="link-icon">⌖</span><span>Shanghai / Hong Kong</span></li>
             <li><a href="mailto:hcaoaf@connect.ust.hk"><span class="link-icon">@</span><span>Email</span></a></li>
             <li><a href="https://scholar.google.com/citations?user=tLZ2V2kAAAAJ&amp;hl=en"><span class="link-icon">G</span><span>Google Scholar</span></a></li>
             <li><a href="https://hk.linkedin.com/in/he-cao"><span class="link-icon">in</span><span>LinkedIn</span></a></li>
